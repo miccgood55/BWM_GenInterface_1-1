@@ -38,7 +38,7 @@ public class GenRMMapCif extends GenRM{
 		
 		sb.append(generateRMMapCifTree(maxLevel, 0, 0, null));
 		
-		File file = new File(path + "\\" + Constants.FILE_NAME_RM_MAP_CIF + ".txt");
+		File file = new File(path + Constants.FILE_NAME_RM_MAP_CIF + ".txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 		bw.write(sb.toString());
 		bw.close();

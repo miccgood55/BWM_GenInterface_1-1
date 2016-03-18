@@ -155,7 +155,7 @@ public class GenerateFile {
 			
 			if((seq*noOfLiability)%limit == 0){
 				noOfFile++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_LIABILITY_POS + noOfFile + ".txt");
+				File file = new File(path + Constants.FILE_NAME_LIABILITY_POS + noOfFile + ".txt");
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 				bw.write(total.toString());
 				bw.close();
@@ -196,7 +196,7 @@ public class GenerateFile {
 		total.append("BRL|THB|100|").append(CURRENT_DATE_FORMAT).append(Constants.DEFAULT_LINE_SEPARATOR);
 		total.append("INR|THB|100|").append(CURRENT_DATE_FORMAT).append(Constants.DEFAULT_LINE_SEPARATOR);
 		
-		File file = new File(path + "\\" + Constants.FILE_NAME_FX + ".txt");
+		File file = new File(path + Constants.FILE_NAME_FX + ".txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 		bw.write(total.toString());
 		bw.close();

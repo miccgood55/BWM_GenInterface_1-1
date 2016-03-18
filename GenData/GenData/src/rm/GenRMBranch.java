@@ -43,7 +43,7 @@ public class GenRMBranch {
 			GenerateFile.LIST_BRANCH.add("0" + branchCode);
 		}
 		
-		File file = new File(path + "\\" + Constants.FILE_NAME_RM_BRANCH +  ".txt");
+		File file = new File(path + Constants.FILE_NAME_RM_BRANCH +  ".txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 		bw.write(total.toString());
 		bw.close();

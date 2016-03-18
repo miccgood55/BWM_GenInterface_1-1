@@ -56,7 +56,7 @@ public class GenBM {
 		}
 		
 		//System.out.println("Total: " + total.toString());
-		File file = new File(path + "\\" + Constants.FILE_NAME_BM + ".txt");
+		File file = new File(path + Constants.FILE_NAME_BM + ".txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 		bw.write(total.toString());
 		bw.close();

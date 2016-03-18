@@ -37,7 +37,7 @@ public class GenCustomer {
 			total.append(record).append(Constants.DEFAULT_LINE_SEPARATOR);
 			if(seq%GenerateFile.LIMIT_CUSTOMER_PER_FILE == 0 || seq == GenerateFile.NO_OF_CUSTOMER){
 				noOfFile++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_CUS + noOfFile + ".txt");
+				File file = new File(path + Constants.FILE_NAME_CUS + noOfFile + ".txt");
 				GenFilesUtils.writeFile(file, total);
 			}
 			

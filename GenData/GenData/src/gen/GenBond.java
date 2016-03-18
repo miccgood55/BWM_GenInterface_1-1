@@ -45,14 +45,14 @@ public class GenBond {
 			
 			if (NO_OF_MASTER % GenerateFile.LIMIT_BOND_PER_FILE == 0) {
 				NO_OF_MASTER_FILE++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_BONDMASTER + NO_OF_MASTER_FILE + ".txt");
+				File file = new File(path + Constants.FILE_NAME_BONDMASTER + NO_OF_MASTER_FILE + ".txt");
 				GenFilesUtils.writeFile(file, MASTER_SB);
 			}
 		}
 		
 		if(MASTER_SB.length() > 0){
 			NO_OF_MASTER_FILE++;
-			File file = new File(path + "\\" + Constants.FILE_NAME_BONDMASTER + NO_OF_MASTER_FILE + ".txt");
+			File file = new File(path + Constants.FILE_NAME_BONDMASTER + NO_OF_MASTER_FILE + ".txt");
 			
 			GenFilesUtils.writeFile(file, MASTER_SB, true);
 		}
@@ -60,13 +60,13 @@ public class GenBond {
 			NO_OF_POSITION_FILE++;
 
 			String pathPos = Constants.DIR + Constants.DIR_BOND_POS;
-			File file = new File(pathPos + "\\" + Constants.FILE_NAME_BOND_POS + "_" + NO_OF_POSITION_FILE + ".txt");
+			File file = new File(pathPos + Constants.FILE_NAME_BOND_POS + "_" + NO_OF_POSITION_FILE + ".txt");
 			GenFilesUtils.writeFile(file, POSITION_SB, true);
 		}
 		if(TRANSACTION_SB.length() > 0){
 			NO_OF_TRANSACTION_FILE++;
 			String pathTx = Constants.DIR + Constants.DIR_BOND_TX;
-			File file = new File(pathTx + "\\" + Constants.FILE_NAME_BOND_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
+			File file = new File(pathTx + Constants.FILE_NAME_BOND_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
 			GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 		}
 
@@ -102,7 +102,7 @@ public class GenBond {
 
 			if (NO_OF_POSITION % GenerateFile.LIMIT_BOND_PER_FILE == 0) {
 				NO_OF_POSITION_FILE++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_BOND_POS + "_" + NO_OF_POSITION_FILE + ".txt");
+				File file = new File(path + Constants.FILE_NAME_BOND_POS + "_" + NO_OF_POSITION_FILE + ".txt");
 				GenFilesUtils.writeFile(file, POSITION_SB, true);
 			}
 		}
@@ -132,7 +132,7 @@ public class GenBond {
 			
 			if (NO_OF_TRANSACTION % GenerateFile.LIMIT_BOND_PER_FILE == 0) {
 				NO_OF_TRANSACTION_FILE++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_BOND_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
+				File file = new File(path + Constants.FILE_NAME_BOND_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
 				GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 			}
 		}

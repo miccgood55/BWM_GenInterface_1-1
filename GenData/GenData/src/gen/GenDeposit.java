@@ -153,19 +153,19 @@ public class GenDeposit {
 
 	private static void writeAcc () throws IOException{
 		NO_OF_ACC_FILE++;
-		File file = new File(PATH_ACC + "\\" + Constants.FILE_NAME_DEP_ACC + NO_OF_ACC_FILE + ".txt");
+		File file = new File(PATH_ACC + Constants.FILE_NAME_DEP_ACC + NO_OF_ACC_FILE + ".txt");
 		GenFilesUtils.writeFile(file, ACC_SB, true);
 	}
 	
 	private static void writePos () throws IOException{
 		NO_OF_POSITION_FILE++;
-		File file = new File(PATH_POS + "\\" + Constants.FILE_NAME_DEP_POS + "_" + NO_OF_POSITION_FILE + ".txt");
+		File file = new File(PATH_POS + Constants.FILE_NAME_DEP_POS + "_" + NO_OF_POSITION_FILE + ".txt");
 		GenFilesUtils.writeFile(file, POSITION_SB, true);
 	}
 	
 	private static void writeTx () throws IOException{
 		NO_OF_TRANSACTION_FILE++;
-		File file = new File(PATH_TX + "\\" + Constants.FILE_NAME_DEP_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
+		File file = new File(PATH_TX + Constants.FILE_NAME_DEP_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
 		GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 	}
 }

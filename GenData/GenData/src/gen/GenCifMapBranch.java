@@ -46,7 +46,7 @@ public class GenCifMapBranch {
 			}
 		}
 		
-		File file = new File(path + "\\" + Constants.FILE_NAME_CIF_MAP_BRANCH + ".txt");
+		File file = new File(path + Constants.FILE_NAME_CIF_MAP_BRANCH + ".txt");
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 		bw.write(sb.toString());
 		bw.close();

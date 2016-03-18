@@ -39,7 +39,7 @@ public class GenRM {
 		generateRMTree(maxLevel, 0, 0, null);
 		
 		for (int i = 0; i < RM_CONTENT_MAP.size(); i++) {
-			File file = new File(path + "\\" + Constants.FILE_NAME_RM + "_" + i + ".txt");
+			File file = new File(path + Constants.FILE_NAME_RM + "_" + i + ".txt");
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 			StringBuffer sb = new StringBuffer(header).append(Constants.DEFAULT_LINE_SEPARATOR);
 			bw.write(RM_CONTENT_MAP.get(i).toString());
@@ -47,7 +47,7 @@ public class GenRM {
 		}
 		
 		
-//		File file = new File(path + "\\" + Constants.FILE_NAME_RM + ".txt");
+//		File file = new File(path + Constants.FILE_NAME_RM + ".txt");
 //		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
 //		bw.write(RM_CONTENT.toString());
 //		bw.close();

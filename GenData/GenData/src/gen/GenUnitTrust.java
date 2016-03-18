@@ -50,7 +50,7 @@ public class GenUnitTrust {
 			
 			if(seq%GenerateFile.LIMIT_FUND_PER_FILE == 0){
 				noOfFile++;
-				File file = new File(path + "\\" + Constants.FILE_NAME_FUNDCODE + noOfFile + ".txt");
+				File file = new File(path + Constants.FILE_NAME_FUNDCODE + noOfFile + ".txt");
 				GenFilesUtils.writeFile(file, total, true);
 			}
 		}
@@ -78,25 +78,25 @@ public class GenUnitTrust {
 				
 				if(NO_OF_UH%GenerateFile.LIMIT_UH_PER_FILE == 0){
 					NO_OF_UH_FILE++;
-					File file = new File(PATH_UH + "\\" + Constants.FILE_NAME_UH + NO_OF_UH_FILE + ".txt");
+					File file = new File(PATH_UH + Constants.FILE_NAME_UH + NO_OF_UH_FILE + ".txt");
 					GenFilesUtils.writeFile(file, UH_SB, true);
 				}
 			}
 		}
 		if(UH_SB.length() > 0){
 			NO_OF_UH_FILE++;
-			File file = new File(PATH_UH + "\\" + Constants.FILE_NAME_UH + NO_OF_UH_FILE + ".txt");
+			File file = new File(PATH_UH + Constants.FILE_NAME_UH + NO_OF_UH_FILE + ".txt");
 			
 			GenFilesUtils.writeFile(file, UH_SB, true);
 		}
 		if(POSITION_SB.length() > 0){
 			NO_OF_POSITION_FILE++;
-			File file = new File(PATH_POS + "\\" + Constants.FILE_NAME_UT_POS + NO_OF_POSITION_FILE + "_" + GenerateFile.CURRENT_DATE_FORMAT + ".txt");
+			File file = new File(PATH_POS + Constants.FILE_NAME_UT_POS + NO_OF_POSITION_FILE + "_" + GenerateFile.CURRENT_DATE_FORMAT + ".txt");
 			GenFilesUtils.writeFile(file, POSITION_SB, true);
 		}
 		if(TRANSACTION_SB.length() > 0){
 			NO_OF_TRANSACTION_FILE++;
-			File file = new File(PATH_TX + "\\" + Constants.FILE_NAME_UT_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
+			File file = new File(PATH_TX + Constants.FILE_NAME_UT_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
 			GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 		}
 
@@ -138,7 +138,7 @@ public class GenUnitTrust {
 			
 			if(NO_OF_POSITION% (GenerateFile.LIMIT_UH_PER_FILE * 2) == 0){
 				NO_OF_POSITION_FILE++;
-				File file = new File(PATH_POS + "\\" + Constants.FILE_NAME_UT_POS + NO_OF_POSITION_FILE + "_" + GenerateFile.CURRENT_DATE_FORMAT + ".txt");
+				File file = new File(PATH_POS + Constants.FILE_NAME_UT_POS + NO_OF_POSITION_FILE + "_" + GenerateFile.CURRENT_DATE_FORMAT + ".txt");
 
 				GenFilesUtils.writeFile(file, POSITION_SB, true);
 			}
@@ -197,7 +197,7 @@ public class GenUnitTrust {
 			
 			if(NO_OF_TRANSACTION%(GenerateFile.LIMIT_UH_PER_FILE * 2) == 0){
 				NO_OF_TRANSACTION_FILE++;
-				File file = new File(PATH_TX + "\\" + Constants.FILE_NAME_UT_TX + NO_OF_TRANSACTION_FILE + ".txt");
+				File file = new File(PATH_TX + Constants.FILE_NAME_UT_TX + NO_OF_TRANSACTION_FILE + ".txt");
 				GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 			}
 		}
