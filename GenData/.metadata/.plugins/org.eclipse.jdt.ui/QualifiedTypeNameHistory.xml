@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="com.wmsl.HelloWorld"/>
+<fullyQualifiedTypeName name="dao.KeyGenDao"/>
+<fullyQualifiedTypeName name="org.springframework.orm.hibernate3.support.HibernateDaoSupport"/>
+<fullyQualifiedTypeName name="com.wmsl.dao.KeyGenDao"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="com.wmsl.bo.KeyGenBo"/>
+<fullyQualifiedTypeName name="com.wmsl.model.KeyGen"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.hibernate.validator.Length"/>
+<fullyQualifiedTypeName name="com.wealth.bwm.impl.entity.cp.Customer"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+<fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="org.hibernate.Query"/>
+<fullyQualifiedTypeName name="com.wmsl.dao.CustomerDao"/>
+<fullyQualifiedTypeName name="com.wealth.bwm.impl.entity.cp.person.PersonCustomer"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.wmsl.bo.CustomerBo"/>
+</qualifiedTypeNameHistroy>

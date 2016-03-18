@@ -1,0 +1,12 @@
+package com.wmsl.bo;
+
+import com.wealth.bwm.impl.entity.cp.person.PersonCustomer;
+import com.wmsl.model.KeyGen;
+
+public interface CustomerBo {
+
+	void save(PersonCustomer personCustomer);
+	void update(KeyGen keyGen);
+	void delete(KeyGen keyGen);
+	KeyGen findByPkColumn(KeyGen keyGen);
+}

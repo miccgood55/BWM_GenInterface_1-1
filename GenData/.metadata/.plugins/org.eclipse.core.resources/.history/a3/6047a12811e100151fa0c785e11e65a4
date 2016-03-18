@@ -1,0 +1,11 @@
+package com.wmsl.dao;
+
+import com.wmsl.model.KeyGen;
+
+public interface CustomerDao {
+
+	void save(KeyGen keyGen);
+	void update(KeyGen keyGen);
+	void delete(KeyGen keyGen);
+	KeyGen findByKeyGenCode(String pkColumn);
+}

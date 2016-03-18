@@ -1,0 +1,35 @@
+package com.wmsl.bo.impl;
+
+import com.wealth.bwm.impl.entity.cp.person.PersonCustomer;
+import com.wmsl.bo.CustomerBo;
+import com.wmsl.bo.KeyGenBo;
+import com.wmsl.dao.CustomerDao;
+import com.wmsl.dao.KeyGenDao;
+import com.wmsl.model.KeyGen;
+
+public class CustomerBoImpl implements CustomerBo{
+	
+	CustomerDao customerDao;
+	
+	public void setKeyGenDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	public void save(PersonCustomer personCustomer){
+		customerDao.save(personCustomer);
+	}
+	
+	public void update(PersonCustomer personCustomer){
+		customerDao.update(personCustomer);
+	}
+	
+	public void delete(PersonCustomer personCustomer){
+		customerDao.delete(personCustomer);
+	}
+	
+	@Override
+	public KeyGen findByPkColumn(PersonCustomer personCustomer) {
+		return customerDao.findByKeyGenCode(personCustomer.getCustomerId());
+	}
+
+}

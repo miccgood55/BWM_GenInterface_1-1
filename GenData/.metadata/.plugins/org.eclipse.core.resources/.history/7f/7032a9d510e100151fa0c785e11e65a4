@@ -1,0 +1,53 @@
+package com.wmsl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.wealth.bwm.impl.entity.cp.Customer;
+import com.wealth.bwm.impl.entity.cp.person.PersonCustomer;
+import com.wmsl.bo.KeyGenBo;
+import com.wmsl.model.KeyGen;
+
+public class App {
+
+	private static final Logger logger = LoggerFactory.getLogger(App.class);
+
+	private static ApplicationContext appContext;
+	
+    public static void main( String[] args )
+    {
+		appContext = new ClassPathXmlApplicationContext("BeanLocations.xml");
+		
+    	PersonCustomer pc = new PersonCustomer();
+//    	pc.set
+		
+		//(Customer)appContext.getBean("KeyGenBo");
+
+    }
+    
+    
+    private void test() {
+    	KeyGenBo KeyGenBo = (KeyGenBo)appContext.getBean("KeyGenBo");
+    	
+    	/** insert **/
+    	KeyGen KeyGen = new KeyGen();
+    	KeyGen.setPkColumn("HAIO" + Math.random());
+    	KeyGen.setNextId(1);
+    	KeyGenBo.save(KeyGen);
+    	
+    	/** select **/
+    	KeyGen KeyGen2 = KeyGenBo.findByPkColumn(KeyGen);
+    	logger.debug(KeyGen2.toString());
+    	
+    	/** update **/
+    	KeyGen2.setNextId(KeyGen2.getNextId() + 1);
+    	KeyGenBo.update(KeyGen2);
+    	
+    	/** delete **/
+    	KeyGenBo.delete(KeyGen2);
+    	
+    	logger.debug("Done");
+	}
+}

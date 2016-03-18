@@ -1,0 +1,11 @@
+package com.wmsl.bo;
+
+import com.wmsl.model.KeyGen;
+
+public interface CustomerBo {
+
+	void save(KeyGen keyGen);
+	void update(KeyGen keyGen);
+	void delete(KeyGen keyGen);
+	KeyGen findByPkColumn(KeyGen keyGen);
+}

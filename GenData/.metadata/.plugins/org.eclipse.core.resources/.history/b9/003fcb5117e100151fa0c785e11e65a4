@@ -1,0 +1,548 @@
+package com.wmsl.entity.cp;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.TableGenerator;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.Length;
+
+//import com.wealth.bwm.BWMDateTimeConfiguration;
+//import com.wealth.bwm.impl.entity.rm.RMMapCIS;
+//import com.wealth.utils.datetime.DatetimeFormatter;
+
+@Entity
+@Table(name = "CP_CUSTOMER")
+@Inheritance(strategy = InheritanceType.JOINED)
+@TableGenerator(name = "CP_GEN", table = "CP_KEY_GEN", pkColumnName = "PK_COLUMN", valueColumnName = "NEXT_ID", pkColumnValue = "CustomerID", allocationSize = 10)
+public abstract class Customer implements Serializable,Cloneable {
+
+	static final private long serialVersionUID = 1031000001L;
+
+	// public static final int CLIENT_TYPE = 1;
+	// public static final int POTENTIAL_TYPE = 2;
+	// public static final int OTHER_TYPE = 3;
+	//
+	//
+	// public static final Character ACCOUNTLOG_ISREPORTED = 'N';
+	// public static final String ACCOUNTLOG_ACTIONTYPE = "CHANGE";
+	// public static final String ACCOUNTLOG_CHANGEINFO = "CUSTOMER";
+
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.TABLE, generator = "CP_GEN")
+//	protected Integer customerId;
+//	protected String KYC;
+//	protected String approveBy;
+//	@Length(max = 8)
+//	protected String approveDate;
+//	@Length(max = 8)
+//	protected String approveTime;
+//	//@Length(max = 8)
+//	protected String updateKYC;
+//	protected Character suspend;
+//	protected Character holdAllMail;
+//
+//	protected String KYCStatus;
+//	protected String CIFCode;
+//	protected String CIFCodeInternal;
+//	protected Integer type;
+//	protected Integer subType;
+//	protected String createDate;
+//	protected String createTime;
+//	protected Integer createBy;
+//	protected String createByName;
+//
+//	protected String updateDate;
+//	protected String updateTime;
+//	protected Integer updateBy;
+//	protected String updateByName;
+//
+//	protected Character returnMail;
+//	protected Character isImported;
+//	protected Character isActive;
+//
+//	protected Integer riskProfile;
+//
+//	protected String reportLanguage;
+//
+//	protected String segmentAUM;
+//	
+//	
+//	@OneToMany(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "CUSTOMERID")
+//	private List<RMMapCIS> rmMapCis;
+//	
+//	
+//	
+//	protected String taxId;
+//	
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "FATCAID")
+//	protected Fatca fatca;
+//	
+//	protected Integer aumSegmentation;
+//	
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "SUITABILITYID")
+//	protected Suitability suitability;
+//	
+//	protected String suitabilityLastReview;
+//	
+//	
+//	private BigDecimal aumSegmentMoreThanOrEqual;
+//	private BigDecimal aumSegmentLessThan;
+//	
+//	
+//	
+//	
+//	public BigDecimal getAumSegmentMoreThanOrEqual() {
+//		return aumSegmentMoreThanOrEqual;
+//	}
+//
+//	public void setAumSegmentMoreThanOrEqual(BigDecimal aumSegmentMoreThanOrEqual) {
+//		this.aumSegmentMoreThanOrEqual = aumSegmentMoreThanOrEqual;
+//	}
+//
+//	public BigDecimal getAumSegmentLessThan() {
+//		return aumSegmentLessThan;
+//	}
+//
+//	public void setAumSegmentLessThan(BigDecimal aumSegmentLessThan) {
+//		this.aumSegmentLessThan = aumSegmentLessThan;
+//	}
+//
+//	public String getSuitabilityLastReview() {
+//		return suitabilityLastReview;
+//	}
+//
+//	public void setSuitabilityLastReview(String suitabilityLastReview) {
+//		this.suitabilityLastReview = suitabilityLastReview;
+//	}
+//
+//	public Suitability getSuitability() {
+//		return suitability;
+//	}
+//
+//	public void setSuitability(Suitability suitability) {
+//		this.suitability = suitability;
+//	}
+//
+//	public Integer getAumSegmentation() {
+//		return aumSegmentation;
+//	}
+//
+//	public void setAumSegmentation(Integer aumSegmentation) {
+//		this.aumSegmentation = aumSegmentation;
+//	}
+//
+//	public Fatca getFatca() {
+//		return fatca;
+//	}
+//
+//	public void setFatca(Fatca fatca) {
+//		this.fatca = fatca;
+//	}
+//
+//	protected String KYCLastReviewDate;
+//	
+//	protected String profileImage;
+//	
+//	
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name="REFCIFID")
+//	protected Customer refCif;
+//	
+//	public String getProfileImage() {
+//		return profileImage;
+//	}
+//
+//	public void setProfileImage(String profileImage) {
+//		this.profileImage = profileImage;
+//	}
+//
+//
+//	
+//
+//	public Customer getRefCif() {
+//		return refCif;
+//	}
+//
+//	public void setRefCif(Customer refCif) {
+//		this.refCif = refCif;
+//	}
+//
+//	public String getKYCLastReviewDate() {
+//		return KYCLastReviewDate;
+//	}
+//
+//	public void setKYCLastReviewDate(String kYCLastReviewDate) {
+//		KYCLastReviewDate = kYCLastReviewDate;
+//	}
+//
+//	public String getTaxId() {
+//		return taxId;
+//	}
+//
+//	public void setTaxId(String taxId) {
+//		this.taxId = taxId;
+//	}
+//
+//	public List<RMMapCIS> getRmMapCis() {
+//		return rmMapCis;
+//	}
+//
+//	public void setRmMapCis(List<RMMapCIS> rmMapCis) {
+//		this.rmMapCis = rmMapCis;
+//	}
+//
+//	/**
+//     * @return @return Auto generated the reportLanguage -Generated on Feb 23, 2012
+//     */
+//    public String getReportLanguage() {
+//	    return reportLanguage;
+//    }
+//    
+//    /**
+//     * @param reportLanguage Auto generated the reportLanguage to set -Generated on Feb 23, 2012
+//     */
+//    public void setReportLanguage(String reportLanguage) {
+//	    this.reportLanguage = reportLanguage;
+//    }
+//    
+//	public Integer getRiskProfile() {
+//		return riskProfile;
+//	}
+//
+//	public void setRiskProfile(Integer riskProfile) {
+//		this.riskProfile = riskProfile;
+//	}
+//
+//	public Character getIsImported() {
+//		return isImported;
+//	}
+//
+//	public void setIsImported(Character isImported) {
+//		this.isImported = isImported;
+//	}
+//
+//	@Transient
+//	abstract public String getName();
+//
+//	@Transient
+//	abstract public String getNameEn();
+//
+//	@Transient
+//	abstract public String getNameTh();
+//
+//	public Customer() {
+//	}
+//
+//	public void setCustomerId(Integer customerId) {
+//		this.customerId = customerId;
+//	}
+//
+//	public Integer getCustomerId() {
+//		return customerId;
+//	}
+//
+//	public String getKYC() {
+//		return KYC;
+//	}
+//
+//	public void setKYC(String kYC) {
+//		KYC = kYC;
+//	}
+//
+//	public void setApproveBy(String approveBy) {
+//		this.approveBy = approveBy;
+//	}
+//
+//	public String getApproveBy() {
+//		return approveBy;
+//	}
+//
+//	public void setApproveDate(String approveDate) {
+//		this.approveDate = approveDate;
+//	}
+//
+//	public String getApproveDate() {
+//		return approveDate;
+//	}
+//
+//	public void setUpdateKYC(String updateKYC) {
+//		this.updateKYC = updateKYC;
+//	}
+//
+//	public String getUpdateKYC() {
+//		return updateKYC;
+//	}
+//
+//	public Integer getSubType() {
+//		return subType;
+//	}
+//
+//	public void setSubType(Integer subType) {
+//		this.subType = subType;
+//	}
+//
+//	public boolean isHoldAllMail() {
+//		if (holdAllMail == null)
+//			return false;
+//		return holdAllMail.equals('Y') ? true : false;
+//	}
+//
+//	@Transient
+//	public BigDecimal getTotalInvestment() {
+//		return null;
+//	}
+//
+//	public void setSuspend(Character suspend) {
+//		this.suspend = suspend;
+//	}
+//
+//	public Character getSuspend() {
+//		return suspend;
+//	}
+//
+//	public void setHoldAllMail(Character holdAllMail) {
+//		this.holdAllMail = holdAllMail;
+//	}
+//
+//	public Character getHoldAllMail() {
+//		return holdAllMail;
+//	}
+//
+//	public String getKYCStatus() {
+//		return KYCStatus;
+//	}
+//
+//	public void setKYCStatus(String status) {
+//		KYCStatus = status;
+//	}
+//
+//	public String getCIFCode() {
+//		return CIFCode;
+//	}
+//
+//	public void setCIFCode(String code) {
+//		CIFCode = code;
+//	}
+//
+//	public String toString() {
+//		if (customerId != null)
+//			return customerId.toString();
+//		else
+//			return null;
+//	}
+//
+//	public String getApproveTime() {
+//		return approveTime;
+//	}
+//
+//	public void setApproveTime(String approveTime) {
+//		this.approveTime = approveTime;
+//	}
+//
+//	public String getCIFCodeInternal() {
+//		return CIFCodeInternal;
+//	}
+//
+//	public void setCIFCodeInternal(String CIFCodeInternal) {
+//		this.CIFCodeInternal = CIFCodeInternal;
+//	}
+//
+//	public Integer getType() {
+//		return type;
+//	}
+//
+//	public void setType(Integer type) {
+//		this.type = type;
+//	}
+//
+//	public Character getReturnMail() {
+//		return returnMail;
+//	}
+//
+//	public void setReturnMail(Character returnMail) {
+//		this.returnMail = returnMail;
+//	}
+//
+//	public boolean isReturnMail() {
+//		if (returnMail == null)
+//			return false;
+//		return returnMail.equals('Y') ? true : false;
+//	}
+//
+//	public Character getIsActive() {
+//		return isActive;
+//	}
+//
+//	public void setIsActive(Character isActive) {
+//		this.isActive = isActive;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the createDate -Generated on Jul 22, 2010
+//	 */
+//	public String getCreateDate() {
+//		return createDate;
+//	}
+//
+//	/**
+//	 * @param createDate
+//	 *            Auto generated the createDate to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setCreateDate(String createDate) {
+//		this.createDate = createDate;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the createTime -Generated on Jul 22, 2010
+//	 */
+//	public String getCreateTime() {
+//		return createTime;
+//	}
+//
+//	/**
+//	 * @param createTime
+//	 *            Auto generated the createTime to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setCreateTime(String createTime) {
+//		this.createTime = createTime;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the createBy -Generated on Jul 22, 2010
+//	 */
+//	public Integer getCreateBy() {
+//		return createBy;
+//	}
+//
+//	/**
+//	 * @param createBy
+//	 *            Auto generated the createBy to set -Generated on Jul 22, 2010
+//	 */
+//	public void setCreateBy(Integer createBy) {
+//		this.createBy = createBy;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the createByName -Generated on Jul 22,
+//	 *         2010
+//	 */
+//	public String getCreateByName() {
+//		return createByName;
+//	}
+//
+//	/**
+//	 * @param createByName
+//	 *            Auto generated the createByName to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setCreateByName(String createByName) {
+//		this.createByName = createByName;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the updateDate -Generated on Jul 22, 2010
+//	 */
+//	public String getUpdateDate() {
+//		return updateDate;
+//	}
+//
+//	/**
+//	 * @param updateDate
+//	 *            Auto generated the updateDate to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setUpdateDate(String updateDate) {
+//		this.updateDate = updateDate;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the updateTime -Generated on Jul 22, 2010
+//	 */
+//	public String getUpdateTime() {
+//		return updateTime;
+//	}
+//
+//	/**
+//	 * @param updateTime
+//	 *            Auto generated the updateTime to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setUpdateTime(String updateTime) {
+//		this.updateTime = updateTime;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the updateBy -Generated on Jul 22, 2010
+//	 */
+//	public Integer getUpdateBy() {
+//		return updateBy;
+//	}
+//
+//	/**
+//	 * @param updateBy
+//	 *            Auto generated the updateBy to set -Generated on Jul 22, 2010
+//	 */
+//	public void setUpdateBy(Integer updateBy) {
+//		this.updateBy = updateBy;
+//	}
+//
+//	/**
+//	 * @return @return Auto generated the updateByName -Generated on Jul 22,
+//	 *         2010
+//	 */
+//	public String getUpdateByName() {
+//		return updateByName;
+//	}
+//
+//	/**
+//	 * @param updateByName
+//	 *            Auto generated the updateByName to set -Generated on Jul 22,
+//	 *            2010
+//	 */
+//	public void setUpdateByName(String updateByName) {
+//		this.updateByName = updateByName;
+//	}
+//
+//	@Transient
+//	public Date getCreateDateDt() {
+//		DatetimeFormatter dateTimeFormatter = new DatetimeFormatter(BWMDateTimeConfiguration.getProperty(BWMDateTimeConfiguration.BWM_DATETIME_FORMAT), new Locale(BWMDateTimeConfiguration.getProperty(BWMDateTimeConfiguration.SYSTEM_LOCALE)));
+//		return dateTimeFormatter.getDateTime(createDate);
+//	}
+//
+//	public String getSegmentAUM() {
+//		return segmentAUM;
+//	}
+//
+//	public void setSegmentAUM(String segmentAUM) {
+//		this.segmentAUM = segmentAUM;
+//	}
+//
+//	
+//	@Override
+//    public Object clone() throws CloneNotSupportedException {
+//        return super.clone();
+//    }
+//	
+}

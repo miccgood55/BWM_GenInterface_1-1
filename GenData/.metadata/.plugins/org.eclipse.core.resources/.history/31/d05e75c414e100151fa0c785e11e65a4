@@ -1,0 +1,50 @@
+package com.wmsl.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import com.wealth.bwm.impl.entity.cp.person.PersonCustomer;
+import com.wmsl.dao.CustomerDao;
+import com.wmsl.dao.KeyGenDao;
+import com.wmsl.model.KeyGen;
+
+public class CustomerDaoImpl extends HibernateDaoSupport implements CustomerDao{
+	
+	
+
+    @Autowired
+    private SessionFactory sessionFactory;
+    
+    
+	public void save(PersonCustomer personCustomer){
+		getHibernateTemplate().save(personCustomer);
+	}
+	
+	public void update(PersonCustomer personCustomer){
+		getHibernateTemplate().update(personCustomer);
+	}
+	
+	public void delete(PersonCustomer personCustomer){
+		getHibernateTemplate().delete(personCustomer);
+	}
+	
+	public PersonCustomer findByKeyGenCode(PersonCustomer personCustomer){
+		
+//		Session session = getSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createSQLQuery(
+				"select * from PersonCustomer p where p.customerId = :customerId")
+				.addEntity(PersonCustomer.class)
+				.setParameter("customerId", personCustomer.getCustomerId());
+				List result = query.list();
+				
+				
+//		List<KeyGen> list = (List<KeyGen>) getHibernateTemplate().find("from KeyGen where pkColumn=?",keyGenCode);
+		return (PersonCustomer)list.get(0);
+	}
+}

@@ -1,0 +1,11 @@
+package com.wmsl.dao;
+
+import com.wealth.bwm.impl.entity.cp.person.PersonCustomer;
+
+public interface CustomerDao {
+
+	void save(PersonCustomer personCustomer);
+	void update(PersonCustomer personCustomer);
+	void delete(PersonCustomer personCustomer);
+	PersonCustomer findByCustomerId(PersonCustomer personCustomer);
+}

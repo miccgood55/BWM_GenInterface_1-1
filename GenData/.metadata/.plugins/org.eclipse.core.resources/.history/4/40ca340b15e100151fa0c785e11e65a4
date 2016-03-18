@@ -1,0 +1,33 @@
+package com.wmsl.bo.impl;
+
+import com.wmsl.bo.KeyGenBo;
+import com.wmsl.dao.CustomerDao;
+import com.wmsl.dao.KeyGenDao;
+import com.wmsl.model.KeyGen;
+
+public class CustomerBoImpl implements KeyGenBo{
+	
+	CustomerDao CustomerDao;
+	
+	public void setKeyGenDao(KeyGenDao KeyGenDao) {
+		this.keyGenDao = KeyGenDao;
+	}
+
+	public void save(KeyGen KeyGen){
+		keyGenDao.save(KeyGen);
+	}
+	
+	public void update(KeyGen KeyGen){
+		keyGenDao.update(KeyGen);
+	}
+	
+	public void delete(KeyGen KeyGen){
+		keyGenDao.delete(KeyGen);
+	}
+	
+	@Override
+	public KeyGen findByPkColumn(KeyGen keyGen) {
+		return keyGenDao.findByKeyGenCode(keyGen.getPkColumn());
+	}
+
+}

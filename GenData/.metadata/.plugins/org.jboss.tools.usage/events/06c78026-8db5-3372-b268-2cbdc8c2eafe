@@ -1,0 +1,11 @@
+#Thu Mar 03 14:16:19 ICT 2016
+vl=How many times the 'Finish' button pressed during the day
+l=Wizard class name
+ct=jbt
+d=1456989379632
+c=0
+cmp=usage
+a=finishWizard
+cl=org.tigris.subversion.subclipse.ui.wizards.NewLocationWizard
+v=2.1.0
+s=1
