@@ -64,8 +64,9 @@ public class GenUnitTrust {
 		}
 		
 		for (int seq = 1; seq <= GenerateFile.NO_OF_CUSTOMER; seq++) {
-			for (int i = 1; i <= GenerateFile.NO_OF_UH; i++) {
+			for (int i = 1; i <= GenerateFile.NO_OF_UH_PER_CIF; i++) {
 				NO_OF_UH++;
+				
 				String cifCode = "P" + String.format("%06d", seq);
 				String uh = "UH_" + cifCode + "_" + String.format("%02d", i);
 //				String record = uh + "|||||0|" + cifCode;
@@ -80,6 +81,10 @@ public class GenUnitTrust {
 					NO_OF_UH_FILE++;
 					File file = new File(PATH_UH + Constants.FILE_NAME_UH + NO_OF_UH_FILE + ".txt");
 					GenFilesUtils.writeFile(file, UH_SB, true);
+				}
+				
+				if(NO_OF_UH == GenerateFile.NO_OF_UH){
+					break;
 				}
 			}
 		}

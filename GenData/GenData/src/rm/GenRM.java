@@ -16,7 +16,7 @@ import src.GenerateFile;
 public class GenRM {
 
 	
-	protected static final int RM_CHILD = 9;
+	protected static final int RM_CHILD = 6;
 	
 	protected static Map<Integer, Integer> RM_RECORD_COUNT = null;
 	protected static Map<Integer, Integer> RM_MAP_CIF_COUNT = null;
@@ -32,7 +32,7 @@ public class GenRM {
 		}
 		
 		int maxLevel = genRmRecordCount(GenerateFile.NO_OF_RM);
-		String header = "USERNAME |EMPCODE  |CONTRCODE|FNAME       |LNAME      ";
+//		String header = "USERNAME |EMPCODE  |CONTRCODE|FNAME       |LNAME      ";
 //		StringBuffer sb = new StringBuffer("USERNAME |EMPCODE  |CONTRCODE|FNAME       |LNAME      ")
 //				.append(Constants.DEFAULT_LINE_SEPARATOR)					
 //				.append(generateRMTree(maxLevel, 0, 0, null));
@@ -41,7 +41,7 @@ public class GenRM {
 		for (int i = 0; i < RM_CONTENT_MAP.size(); i++) {
 			File file = new File(path + Constants.FILE_NAME_RM + "_" + i + ".txt");
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getAbsoluteFile()), Constants.ENCODING));
-			StringBuffer sb = new StringBuffer(header).append(Constants.DEFAULT_LINE_SEPARATOR);
+//			StringBuffer sb = new StringBuffer(header).append(Constants.DEFAULT_LINE_SEPARATOR);
 			bw.write(RM_CONTENT_MAP.get(i).toString());
 			bw.close();
 		}

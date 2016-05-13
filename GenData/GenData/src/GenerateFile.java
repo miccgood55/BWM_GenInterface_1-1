@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import src.bean.CustomerMapper;
@@ -29,7 +31,7 @@ public class GenerateFile {
 
 
 	public final static SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMdd");
-	public final static String CURRENT_DATE_FORMAT = SDF.format(new Date());
+	public final static String CURRENT_DATE_FORMAT;// = SDF.format(new Date());
 	
 	public final static List<String> LIST_BRANCH = new ArrayList<String>();
 	public final static Map<String, CustomerMapper> CM_MAP = new HashMap<String, CustomerMapper>();
@@ -40,7 +42,7 @@ public class GenerateFile {
 	public final static int LIMIT_CUSTOMER_PER_FILE = 10000 ;
 	
 //	RM / BM
-	public final static int NO_OF_RM = 800;
+	public final static int NO_OF_RM = 259;
 	public final static int NO_OF_BM = 600;
 
 //	BOND
@@ -54,7 +56,8 @@ public class GenerateFile {
 	public final static int LIMIT_FUND_PER_FILE = 10000 ;
 
 //	UNITHOLDER
-	public final static int NO_OF_UH = 1;
+	public final static int NO_OF_UH = 30000;
+	public final static int NO_OF_UH_PER_CIF = 1;
 	public final static int NO_OF_UT_POS_PER_UH = 1 ;
 	public final static int NO_OF_UT_TX_PER_POS = 1 ;
 	public final static int LIMIT_UH_PER_FILE = 10000 ;
@@ -70,7 +73,14 @@ public class GenerateFile {
 	public final static int LIMIT_LIAB_PER_FILE = 100000 ;
 	
 	public static final int MAX_CIF_MAP_BRANCH = 42;
-	public static final int MAX_RM_MAP_CUS = 35;
+	public static final int MAX_RM_MAP_CUS = 40;
+	
+	static {
+//		CURRENT_DATE_FORMAT = SDF.format(Calendar.getInstance().getTime());
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(2015, 11, 31);
+		CURRENT_DATE_FORMAT = SDF.format(calendar.getTime());
+	}
 	
 	public static void main(String[] args) {
 		try {
