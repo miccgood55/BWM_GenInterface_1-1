@@ -13,7 +13,7 @@ public class GenUnitTrust {
 
 	private final static Map<Integer, String> FUND_CODE_MAP = new HashMap<Integer, String>();
 	
-	private static int FUND_SEQ = 1, 
+	private static int FUND_SEQ = 0, 
 			NO_OF_UH = 0, NO_OF_POSITION = 0, NO_OF_TRANSACTION = 0, 
 			NO_OF_UH_FILE = 0, NO_OF_POSITION_FILE = 0, NO_OF_TRANSACTION_FILE = 0;
 	
@@ -117,7 +117,7 @@ public class GenUnitTrust {
 		
 		for (int j = 1; j <= GenerateFile.NO_OF_UT_POS_PER_UH; j++) {
 			NO_OF_POSITION++;
-			String fundCode = FUND_CODE_MAP.get(FUND_SEQ++);
+			String fundCode = FUND_CODE_MAP.get( ( (FUND_SEQ++) % FUND_CODE_MAP.size() ) + 1);
 			String record = GenerateFile.CURRENT_DATE_FORMAT + "|" + uh + "|" +ISSUER_CODE 
 					+"|"+fundCode+ "|3333.333|444.4444||||||";
 			
@@ -202,7 +202,7 @@ public class GenUnitTrust {
 			
 			if(NO_OF_TRANSACTION%(GenerateFile.LIMIT_UH_PER_FILE * 2) == 0){
 				NO_OF_TRANSACTION_FILE++;
-				File file = new File(PATH_TX + Constants.FILE_NAME_UT_TX + NO_OF_TRANSACTION_FILE + ".txt");
+				File file = new File(PATH_TX + Constants.FILE_NAME_UT_TX + "_" + NO_OF_TRANSACTION_FILE + ".txt");
 				GenFilesUtils.writeFile(file, TRANSACTION_SB, true);
 			}
 		}

@@ -9,7 +9,7 @@ public class Constants {
 //	public static final String DIR = "C:\\tmp\\gen3\\";
 
 	public static final String PATH_DELI = "/";
-	public static final String DIR = "/Volumes/Data/BWM/Interface/gen3/";
+	public static final String DIR = "/Volumes/Data/BWM/Interface/Input1YearTemp/";
 	public static final String DIR_CUS = "cus" + PATH_DELI;
 	public static final String DIR_DEP_ACC = "dep" + PATH_DELI + "dep-acc" + PATH_DELI;
 	public static final String DIR_DEP_POS = "dep" + PATH_DELI + "dep-pos" + PATH_DELI;

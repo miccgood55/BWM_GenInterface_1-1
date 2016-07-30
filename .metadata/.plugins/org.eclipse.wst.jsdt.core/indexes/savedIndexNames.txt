@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+/Volumes/Data/GitHub/BWM_GenInterface_1-1/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1041740969.index
+2109981921.index
+4079200814.index
+3950248894.index
+3153207598.index
+901377380.index

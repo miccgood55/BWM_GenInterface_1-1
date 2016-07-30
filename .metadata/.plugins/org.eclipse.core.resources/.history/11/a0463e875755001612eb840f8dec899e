@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- <beans xmlns="http://www.springframework.org/schema/beans" -->
+	<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
+	<!-- xmlns:p="http://www.springframework.org/schema/p" -->
+	<!-- xmlns:aop="http://www.springframework.org/schema/aop" -->
+	<!-- xmlns:context="http://www.springframework.org/schema/context" -->
+	<!-- xmlns:jee="http://www.springframework.org/schema/jee" -->
+	<!-- xmlns:tx="http://www.springframework.org/schema/tx" -->
+	<!-- xmlns:task="http://www.springframework.org/schema/task" -->
+	<!-- xsi:schemaLocation="http://www.springframework.org/schema/aop -->
+	<!-- http://www.springframework.org/schema/aop/spring-aop-3.2.xsd -->
+	<!-- http://www.springframework.org/schema/beans -->
+	<!-- http://www.springframework.org/schema/beans/spring-beans-3.2.xsd -->
+	<!-- http://www.springframework.org/schema/context -->
+	<!-- http://www.springframework.org/schema/context/spring-context-3.2.xsd -->
+	<!-- http://www.springframework.org/schema/jee -->
+	<!-- http://www.springframework.org/schema/jee/spring-jee-3.2.xsd -->
+	<!-- http://www.springframework.org/schema/tx -->
+	<!-- http://www.springframework.org/schema/tx/spring-tx-3.2.xsd -->
+	<!-- http://www.springframework.org/schema/task -->
+	<!-- http://www.springframework.org/schema/task/spring-task-3.2.xsd"> -->
+
+	<!-- <context:component-scan base-package="com.programcreek.examples" /> -->
+
+	<!-- <bean id="helloWorldService" class="com.wmsl.HelloWorld"> -->
+	<!-- <property name="name" value="Program Creek Readers" /> -->
+	<!-- </bean> -->
+
+
+
+<!-- 	<bean id="genDataCore" scope="prototype" class="com.wmsl.core.GenDataCore"> -->
+<!-- 		<property name="coreDao"> -->
+<!-- 			<ref bean="coreDao" /> -->
+<!-- 		</property> -->
+<!-- 		<property name="genFilesUtils"> -->
+<!-- 			<ref bean="genFilesUtils" /> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+	<!-- Core -->
+	
+<!-- 	Execution -->
+	<bean id="depositExecutionCore" scope="prototype" class="com.wmsl.execution.core.DepositExecutionCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="depositExecutionDao">
+			<ref bean="depositExecutionDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		<property name="prefixTx" value="${depositExecution.prefix_tx}"/>
+		
+	</bean>
+	
+	<bean id="unitHolderExecutionCore" scope="prototype" class="com.wmsl.execution.core.UnitHolderExecutionCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="unitTrustExecutionDao">
+			<ref bean="unitTrustExecutionDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		<property name="prefixTx" value="${unitHolderExecution.prefix_tx}"/>
+			
+	</bean>
+	
+	
+	<bean id="fixedIncomeExecutionCore" scope="prototype" class="com.wmsl.execution.core.FixedIncomeExecutionCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="fixedIncomeExecutionDao">
+			<ref bean="fixedIncomexecutionDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		<property name="prefixTx" value="${fixedIncomeExecution.prefix_tx}"/>
+			
+	</bean>
+	
+	
+	
+	
+<!-- 	GenOutstanding -->
+	<bean id="depositOutstandingCore" scope="prototype" class="com.wmsl.outstanding.core.DepositOutstandingCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="depositOutstandingDao">
+			<ref bean="depositOutstandingDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+	</bean>
+	
+	<bean id="unitHolderOutstandingCore" scope="prototype" class="com.wmsl.outstanding.core.UnitHolderOutstandingCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="unitTrustOutstandingDao">
+			<ref bean="unitTrustOutstandingDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+			
+	</bean>
+	
+	<bean id="marginOutStandingCore" scope="prototype" class="com.wmsl.outstanding.core.MarginOutStandingCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="marginOutstandingDao">
+			<ref bean="marginOutstandingDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+	</bean>
+	
+	<bean id="creditLoanOutStandingCore" scope="prototype" class="com.wmsl.outstanding.core.CreditLoanOutStandingCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="creditLoanOutstandingDao">
+			<ref bean="creditLoanOutstandingDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+	</bean>
+	
+	
+	<!-- AYCal -->
+	<bean id="ayCalMasterCore" scope="prototype" class="com.wmsl.core.interfac.AYCalMasterCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="aYMasterLimit" value="${aycalmaster.limit}"/>
+	</bean>
+	
+	<bean id="ayCalPosCore" scope="prototype" class="com.wmsl.core.interfac.AYCalPosCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="aYPositionLimit" value="${aycappos.limit}"/>
+	</bean>
+	
+	<!-- AYCap -->
+	<bean id="ayCapMasterCore" scope="prototype" class="com.wmsl.core.interfac.AYCapMasterCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="aYMasterLimit" value="${aycapmaster.limit}"/>
+	</bean>
+	
+	<bean id="ayCapPosCore" scope="prototype" class="com.wmsl.core.interfac.AYCapPosCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="aYPositionLimit" value="${aycappos.limit}"/>
+	</bean>
+	
+	<!-- NonBay-Debenture -->
+	<bean id="nonBayDebTxCore" scope="prototype" class="com.wmsl.core.interfac.NonBayDebTxCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="nonBayDebTxLimit" value="${nonbaydebtx.limit}"/>
+	</bean>
+	
+	<bean id="nonBayDebMasterCore" scope="prototype" class="com.wmsl.core.interfac.NonBayDebMasterCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="nonBayDebMasterLimit" value="${nonbaydebmaster.limit}"/>
+	</bean>
+	
+	
+	<!-- Summary -->
+	<bean id="summaryPositionEqCore" scope="prototype" class="com.wmsl.core.interfac.SummaryPositionEqCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+	
+	</bean>
+	
+	<bean id="summaryPositionDeriCore" scope="prototype" class="com.wmsl.core.interfac.SummaryPositionDeriCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+	
+	</bean>
+	
+	<bean id="summaryMasterCore" scope="prototype" class="com.wmsl.core.interfac.SummaryMasterCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+	
+	</bean>
+
+
+
+
+	<!-- big -->
+	
+	<bean id="ayCapCore" scope="prototype" class="com.wmsl.core.AYCapCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${aycap.instrumentcode}"/>
+		<property name="prefixTx" value="${aycap.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${aycap.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${aycap.subaccount.to}"/> -->
+		<property name="accountLimit" value="${aycap.account.limit}"/>
+		<property name="subAccountLimit" value="${aycap.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${aycap.outstanding.limit}"/>
+		<property name="executionLimit" value="${aycap.execution.limit}"/>
+	</bean>
+	
+	<bean id="ayCalCore" scope="prototype" class="com.wmsl.core.AYCalCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${aycal.instrumentcode}"/>
+		<property name="prefixTx" value="${aycal.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${aycal.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${aycal.subaccount.to}"/> -->
+		<property name="accountLimit" value="${aycal.account.limit}"/>
+		<property name="subAccountLimit" value="${aycal.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${aycal.outstanding.limit}"/>
+		<property name="executionLimit" value="${aycal.execution.limit}"/>
+	</bean>
+	
+	<bean id="summaryEqCore" scope="prototype" class="com.wmsl.core.SummaryEqCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${summaryeq.instrumentcode}"/>
+		<property name="prefixTx" value="${summaryeq.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${summaryeq.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${summaryeq.subaccount.to}"/> -->
+		<property name="accountLimit" value="${summaryeq.account.limit}"/>
+		<property name="subAccountLimit" value="${summaryeq.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${summaryeq.outstanding.limit}"/>
+		<property name="executionLimit" value="${summaryeq.execution.limit}"/>
+	</bean>
+	
+	
+	<bean id="summaryDeriCore" scope="prototype" class="com.wmsl.core.SummaryDeriCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${summaryderi.instrumentcode}"/>
+		<property name="prefixTx" value="${summaryderi.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${summaryderi.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${summaryderi.subaccount.to}"/> -->
+		<property name="accountLimit" value="${summaryderi.account.limit}"/>
+		<property name="subAccountLimit" value="${summaryderi.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${summaryderi.outstanding.limit}"/>
+		<property name="executionLimit" value="${summaryderi.execution.limit}"/>
+	</bean>
+	
+	<bean id="nonBayDebCore" scope="prototype" class="com.wmsl.core.NonBayDebCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+<!-- 		<property name="subBankAccountDao"> -->
+<!-- 			<ref bean="subBankAccountDao" /> -->
+<!-- 		</property> -->
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${nonbaydeb.instrumentcode}"/>
+		<property name="prefixTx" value="${nonbaydeb.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${nonbaydeb.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${nonbaydeb.subaccount.to}"/> -->
+		<property name="accountLimit" value="${nonbaydeb.account.limit}"/>
+		<property name="subAccountLimit" value="${nonbaydeb.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${nonbaydeb.outstanding.limit}"/>
+		<property name="executionLimit" value="${nonbaydeb.execution.limit}"/>
+	</bean>
+	
+	<bean id="depositCore" scope="prototype" class="com.wmsl.core.DepositCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="subBankAccountDao">
+			<ref bean="subBankAccountDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${deposit.instrumentcode}"/>
+		<property name="prefixTx" value="${deposit.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${deposit.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${deposit.subaccount.to}"/> -->
+		<property name="accountLimit" value="${deposit.account.limit}"/>
+		<property name="subAccountLimit" value="${deposit.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${deposit.outstanding.limit}"/>
+		<property name="executionLimit" value="${deposit.execution.limit}"/>
+	</bean>
+
+	<bean id="fixedIncomeCore" scope="prototype" class="com.wmsl.core.FixedIncomeCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="subFixedIncomeAccountDao">
+			<ref bean="subFixedIncomeAccountDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${fixedincome.instrumentcode}"/>
+		<property name="prefixTx" value="${fixedincome.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${fixedincome.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${fixedincome.subaccount.to}"/> -->
+		<property name="accountLimit" value="${fixedincome.account.limit}"/>
+		<property name="subAccountLimit" value="${fixedincome.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${fixedincome.outstanding.limit}"/>
+		<property name="executionLimit" value="${fixedincome.execution.limit}"/>
+		
+	</bean>
+
+	<bean id="unitHolderCore" scope="prototype" class="com.wmsl.core.UnitHolderCore">
+		<property name="coreDao">
+			<ref bean="coreDao" />
+		</property>
+		<property name="genFilesUtils">
+			<ref bean="genFilesUtils" />
+		</property>
+		<property name="subUnitTrustAccountDao">
+			<ref bean="subUnitTrustAccountDao" />
+		</property>
+		
+		<property name="startYear" value="${start.year}"/>
+		<property name="startMonth" value="${start.month}"/>
+		<property name="startDay" value="${start.day}"/>
+		
+		<property name="stopYear" value="${stop.year}"/>
+		<property name="stopMonth" value="${stop.month}"/>
+		<property name="stopDay" value="${stop.day}"/>
+		
+		<property name="instrumentCode" value="${unitholder.instrumentcode}"/>
+		<property name="prefixTx" value="${unitholder.prefix_tx}"/>
+<!-- 		<property name="dataFrom" value="${unitholder.subaccount.from}"/> -->
+<!-- 		<property name="dataTo" value="${unitholder.subaccount.to}"/> -->
+		<property name="accountLimit" value="${unitholder.account.limit}"/>
+		<property name="subAccountLimit" value="${unitholder.subaccount.limit}"/>
+		<property name="outstandingLimit" value="${unitholder.outstanding.limit}"/>
+		<property name="executionLimit" value="${unitholder.execution.limit}"/>
+	</bean>
+	<!-- Utils -->
+	<bean id="genFilesUtils" scope="prototype" class="com.wmsl.utils.GenFilesUtils" />
+
+
+	<!-- DAO -->
+	<bean id="coreDao" scope="prototype" class="com.wmsl.dao.impl.CoreDao">
+
+		<!-- <property name="sessionFactory"> -->
+		<!-- <ref bean="sessionFactory" /> -->
+		<!-- </property> -->
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+ 
+<!-- 	customer -->
+	<bean id="customerDao" scope="prototype" class="com.wealth.bwm.impl.dao.cp.CustomerDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+<!-- 	outstanding -->
+	<bean id="depositOutstandingDao" scope="prototype"
+		class="com.wealth.bwm.batch.impl.dao.cp.account.DepositOutstandingDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="unitTrustOutstandingDao" scope="prototype"
+		class="com.wealth.bwm.batch.impl.dao.cp.account.UnitTrustOutstandingDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="marginOutstandingDao" scope="prototype"
+		class="com.wealth.bwm.batch.impl.dao.cp.account.MarginOutstandingDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="creditLoanOutstandingDao" scope="prototype"
+		class="com.wealth.bwm.batch.impl.dao.cp.account.CreditLoanOutstandingDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+	
+	
+
+<!-- import com.wealth.bwm.batch.impl.dao.cp.account.CreditLoanOutstandingDao; -->
+
+<!-- 	subaccount -->
+
+	<bean id="subBankAccountDao" scope="prototype"
+		class="com.wealth.bwm.impl.dao.cp.account.SubBankAccountDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="subFixedIncomeAccountDao" scope="prototype"
+		class="com.wmsl.dao.impl.SubFixedIncomeAccountDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="subUnitTrustAccountDao" scope="prototype"
+		class="com.wmsl.dao.impl.SubUnitTrustAccountDao">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+<!-- 		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="propertyConfigurer"> -->
+<!-- 			<property name="properties" ref="props" /> -->
+<!-- 		</bean> -->
+		
+		<bean id="props" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		  <property name="location" value="classpath:properties/config.properties"/>
+		</bean>
+
+	<!-- Properties -->
+	<bean id="config" 
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/database.properties</value>
+				<value>classpath:properties/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- DataSource -->
+	<!-- <bean -->
+	<!-- class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+	<!-- <property name="locations"> -->
+	<!-- <value>properties/database.properties</value> -->
+	<!-- <value>classpath:properties/config.properties</value> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+
+	<!-- Hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- <property name="packagesToScan"> -->
+		<!-- <list> -->
+		<!-- <value>annotations</value> -->
+		<!-- </list> -->
+		<!-- </property> -->
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<!-- <property name="current_session_context_class">org.hibernate.context.ThreadLocalSessionContext</property> -->
+				<!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
+			</props>
+		</property>
+
+		<property name="packagesToScan">
+			<list>
+				<value>com.wealth.bwm.impl.entity.**.*</value>
+				<value>com.wealth.bwm.impl.entitymini.**.*</value>
+				<value>com.wealth.bwm.common.impl.entity.**.*</value>
+				<value>com.wealth.bwm.common.impl.entitymini.**.*</value>
+				<value>com.wealth.**.*</value>
+				<value>com.wmsl.**.*</value>
+				<!-- com.wealth.bwm.interfaces.dao.cp.account.outstanding.IOutstandingDao -->
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<!-- <tx:annotation-driven /> -->
+	<!-- <context:component-scan base-package="com.wmsl.*" /> -->
+
+
+</beans>

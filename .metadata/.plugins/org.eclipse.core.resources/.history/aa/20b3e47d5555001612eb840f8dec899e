@@ -1,0 +1,8 @@
+package com.wmsl.dao.impl;
+
+import com.wealth.dao.impl.GenericDAOHibernate;
+import com.wmsl.dao.IFixedIncomeExecutionDao;
+
+public class FixedIncomeExecutionDao extends GenericDAOHibernate<IFixedIncomeExecutionDao, Integer> implements IDepositExecutionDao{
+
+}
